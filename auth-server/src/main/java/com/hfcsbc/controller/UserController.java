@@ -16,4 +16,9 @@ public class UserController {
     public Principal user(Principal user){
         return user;
     }
+
+    @GetMapping("/test")
+    public Principal test(Principal user){
+        return user;
+    }
 }

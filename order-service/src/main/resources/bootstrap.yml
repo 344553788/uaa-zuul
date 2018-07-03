@@ -5,6 +5,12 @@ spring:
     name: order-service
   redis:
     host: localhost
+    database: 8
+    pool:
+          max-active: 8
+          min-idle: 1
+          max-idle: 1
+          max-wait: -1
 #  cloud:
 #    config:
 #      uri: http://${config.host:192.168.1.140}:${config.port:8888}
@@ -19,7 +25,14 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
 
-feign.hystirx.enable: true
+feign:
+  hystirx:
+    enable: true
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
 security:
   oauth2:
     resource:
